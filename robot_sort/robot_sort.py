@@ -1,3 +1,7 @@
+import sys
+sys.setrecursionlimit(10000)
+print(sys.getrecursionlimit())
+
 class SortingRobot:
     def __init__(self, l):
         """
@@ -96,8 +100,43 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        # while True:
+        #     if self.can_move_right():
+        #         self.swap_item()
+        #         self.move_right()
+        #         if self.compare_item() == 1:
+        #             self.swap_item()
+        #             while self.can_move_left():
+        #                 self.move_left()
+        #             self.sort()
+        #         elif self.compare_item() == -1:
+        #             self.move_right()
+        #             self.sort()
+        #     else:
+        #         break
+    
+        while True:
+            if self.can_move_right():
+                self.swap_item()
+                self.move_right()
+                if self.compare_item() == 1:
+                    self.swap_item()
+                    self.move_left()
+                    self.swap_item()
+                    self.move_right()
+                    self.set_light_on()
+                elif self.compare_item() == -1 or self.compare_item() == 0:
+                    self.move_left()
+                    self.swap_item()
+                    self.move_right()
+            else:
+                if self.light_is_on():
+                    while self.can_move_left():
+                        self.move_left()
+                    self.set_light_off()
+                else:
+                    break
+
 
 
 if __name__ == "__main__":
@@ -110,3 +149,4 @@ if __name__ == "__main__":
 
     robot.sort()
     print(robot._list)
+    

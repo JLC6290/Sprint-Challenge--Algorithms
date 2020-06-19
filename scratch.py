@@ -1,3 +1,5 @@
+import sys
+sys.setrecursionlimit(10000)
 count = 0
 iteration = 0
 def count_th(word):
@@ -14,13 +16,16 @@ def count_th(word):
             count_th(chars)
     return count
 
-try_this = "gadhfthlka"
-chars = list(try_this)
-length = len(chars)
-print(length)
-# count_th(try_this))
-for i in range(len(chars)):
-    print(chars[0])
-    chars.pop(0)
-print(chars)
+# try_this = "gadhfthlka"
+# chars = list(try_this)
+# length = len(chars)
+# print(length)
+# # count_th(try_this))
+# for i in range(len(chars)):
+#     print(chars[0])
+#     chars.pop(0)
+# print(chars)
     
+
+limit = sys.getrecursionlimit()
+print(limit)
