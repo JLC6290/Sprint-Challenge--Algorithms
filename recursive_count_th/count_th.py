@@ -11,7 +11,7 @@ def count_th(word):
     if len(word) > 0:
         if chars[0] + chars[1] == "th":
             print("string match")
-            chars.pop(0)
+            chars.pop()
             if len(chars) != 0:
                 count_th(chars)
         elif chars[0] + chars[1] != "th":
